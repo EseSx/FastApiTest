@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="numbersList"></ul>
+
+    <script>
+        const apiUrl = "http://127.0.0.1:8000"
+
+        async function fetchNumbers() {
+            fetch ("http://127.0.0.1:8000/numbers")
+            .then((response) => response.json())
+            .then((response) => printer(response))
+            .catch(Error)
+        }
+
+        const numbersList = document.getElementById("numbersList")
+
+        function printer(element){
+            element.numbers.forEach(num => {
+                const li = document.createElement("li")
+
+                li.textContent = num
+                numbersList.appendChild(li)
+                console.log(li)
+            });
+        }
+
+        fetchNumbers()
+    </script>
+</body>
+</html>
