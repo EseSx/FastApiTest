@@ -10,8 +10,6 @@
     <ul id="numbersList"></ul>
 
     <script>
-        const apiUrl = "http://127.0.0.1:8000"
-
         async function fetchNumbers() {
             fetch ("http://127.0.0.1:8000/numbers")
             .then((response) => response.json())
